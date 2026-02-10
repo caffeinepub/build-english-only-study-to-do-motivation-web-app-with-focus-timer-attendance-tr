@@ -1,0 +1,22 @@
+export const CHOTU_QUOTES = [
+  "I believe in your hard work more than any fear you have.",
+  "One focused step today will build a beautiful tomorrow.",
+  "You are stronger than the stress in your mind.",
+  "Don't chase perfection, chase progress.",
+  "Every page you study is a step toward your dreams.",
+  "Proud of the effort you put in, even on hard days.",
+  "Small discipline beats big motivation.",
+  "Breathe, focus, and begin again.",
+  "Your future self is thanking you for today.",
+  "Confidence grows when you don't give up.",
+  "Learn slowly, win surely.",
+  "Hard days create strong hearts.",
+  "You are not late, you are learning at your pace.",
+  "Focus for 45 minutes, shine for a lifetime.",
+  "Doubt is loud, but your courage is louder.",
+  "Every attempt makes you better than yesterday.",
+  "Stay calm, knowledge is on your side.",
+  "Effort never wastes, it always returns.",
+  "Keep going — the story isn't finished.",
+  "I trust your journey and your strength."
+];

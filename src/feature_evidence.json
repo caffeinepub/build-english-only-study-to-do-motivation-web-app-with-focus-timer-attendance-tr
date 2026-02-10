@@ -1,0 +1,230 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-all-app-naming-and-copy-from-the-current-taruba-focus-cec-branding-to-maleeha-focus-for-a-pharm-d-student-ensuring-all-user-facing-text-is-english-only",
+      "featureTitle": "Update all app naming and copy from the current “Taruba Focus / CEC” branding to “Maleeha Focus” for a Pharm-D student, ensuring all user-facing text is English only.",
+      "files": [
+        "frontend/index.html",
+        "frontend/public/manifest.json",
+        "frontend/src/pages/AttendancePage.tsx",
+        "frontend/src/pages/SettingsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-the-existing-task-categories-and-subjects-with-the-requested-pharm-d-categories-and-subjects-and-ensure-category-selection-filtering-continues-to-work-across-the-app",
+      "featureTitle": "Replace the existing task categories and subjects with the requested Pharm-D categories and subjects, and ensure category selection + filtering continues to work across the app.",
+      "files": [
+        "frontend/src/components/home/CategoryCards.tsx",
+        "frontend/src/components/tasks/CategoryFilterBar.tsx",
+        "frontend/src/components/tasks/CategoryPicker.tsx",
+        "frontend/src/constants/categories.ts",
+        "frontend/src/hooks/useTasks.ts",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/types/tasks.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-rename-the-special-category-section-to-for-maleeha-with-the-requested-preset-tasks-a-flower-completion-indicator-and-a-soft-pastel-accent-applied-only-within-this-category-s-ui-elements",
+      "featureTitle": "Implement/rename the special category section to “For Maleeha 🌸” with the requested preset tasks, a flower completion indicator, and a soft pastel accent applied only within this category’s UI elements.",
+      "files": [
+        "frontend/src/components/tasks/ForMaleehaQuickAdd.tsx",
+        "frontend/src/components/tasks/ForTarubaQuickAdd.tsx",
+        "frontend/src/components/tasks/TaskList.tsx",
+        "frontend/src/constants/forMaleehaPresets.ts",
+        "frontend/src/constants/forTarubaPresets.ts",
+        "frontend/src/index.css",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-daily-quote-generator-to-use-exactly-the-20-provided-from-chotu-quotes-verbatim-with-random-selection-and-a-manual-refresh-action-while-keeping-the-existing-daily-persistence-behavior",
+      "featureTitle": "Update the daily quote generator to use exactly the 20 provided “from Chotu” quotes (verbatim), with random selection and a manual refresh action, while keeping the existing “daily persistence” behavior.",
+      "files": [
+        "frontend/src/components/home/QuoteCard.tsx",
+        "frontend/src/constants/muzzamilQuotes.ts",
+        "frontend/src/hooks/useDailyQuote.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-the-specified-ios-style-theme-palette-across-the-app-light-dark-mode-including-updating-global-theme-colors-to-match-primary-ffd6e0-secondary-d4c1ff-background-fff6f9-success-c8ffd4-text-2f2f2f",
+      "featureTitle": "Apply the specified iOS-style theme palette across the app (light + dark mode), including updating global theme colors to match: Primary #FFD6E0, Secondary #D4C1FF, Background #FFF6F9, Success #C8FFD4, Text #2F2F2F.",
+      "files": [
+        "frontend/index.html",
+        "frontend/public/manifest.json",
+        "frontend/src/components/home/CategoryCards.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-typography-matches-the-request-use-ios-system-style-for-general-ui-san-francisco-like-and-render-quotes-in-a-soft-handwritten-style",
+      "featureTitle": "Ensure typography matches the request: use iOS-system style for general UI (San Francisco-like) and render quotes in a soft handwritten style.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/home/QuoteCard.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-confirm-the-home-screen-layout-matches-the-requested-structure-for-maleeha-focus-top-date-quote-card-middle-category-cards-bottom-floating-add-button-and-ensure-the-displayed-date-is-today-s-date",
+      "featureTitle": "Confirm the Home screen layout matches the requested structure for “Maleeha Focus”: top date + quote card, middle category cards, bottom floating add button, and ensure the displayed date is today’s date.",
+      "files": [
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-keep-the-existing-task-crud-behavior-add-title-description-time-edit-delete-mark-completed-and-ensure-tasks-persist-locally-offline-after-closing-and-reopening",
+      "featureTitle": "Keep the existing task CRUD behavior (add title/description/time, edit, delete, mark completed) and ensure tasks persist locally/offline after closing and reopening.",
+      "files": [
+        "frontend/src/components/tasks/TaskFormDialog.tsx",
+        "frontend/src/hooks/useTasks.ts",
+        "frontend/src/storage/localStore.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-maintain-the-focus-system-as-a-45-minute-focus-timer-with-a-short-break-after-completion-with-an-ios-style-progress-ring-animation-and-ensure-the-do-not-disturb-during-focus-request-is-represented-as-in-app-distraction-reduction-without-claiming-os-level-dnd-control",
+      "featureTitle": "Maintain the focus system as a 45-minute focus timer with a short break after completion, with an iOS-style progress ring animation, and ensure the “Do Not Disturb during focus” request is represented as in-app distraction reduction (without claiming OS-level DND control).",
+      "files": [
+        "frontend/src/components/focus/DistractionMuteToggle.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-attendance-tracker-area-to-align-with-the-pharm-d-context-copy-labels-while-preserving-subject-list-management-present-absent-marking-attendance-percentage-and-the-monthly-calendar-view",
+      "featureTitle": "Update the Attendance Tracker area to align with the Pharm-D context (copy/labels), while preserving: subject list management, present/absent marking, attendance percentage, and the monthly calendar view.",
+      "files": [
+        "frontend/src/pages/AttendancePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-app-store-description-section-in-settings-or-an-about-section-that-displays-the-provided-description-text-verbatim-in-english",
+      "featureTitle": "Add an “App Store description” section in Settings (or an About section) that displays the provided description text verbatim in English.",
+      "files": [
+        "frontend/src/pages/SettingsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

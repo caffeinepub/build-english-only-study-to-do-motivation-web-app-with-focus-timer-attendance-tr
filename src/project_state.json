@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build an English-only iOS (iPhone) app called “Maleeha Focus” for a Pharm-D student: to-do + study manager + motivation, including a special “For Maleeha” section from her brother Chotu, with focus timer, attendance tracker, quotes, widgets, iOS-style theme, offline local storage, reminders, and optional Face ID/passcode lock.",
+  "architectural_notes": [
+    "English-only iPhone (iOS) app; iOS-style UI with dark mode support.",
+    "Offline-first with persistent on-device local storage (data remains after app close).",
+    "Use iOS notifications for task reminders.",
+    "Optional Face ID / passcode lock for app access.",
+    "Home screen widgets for today’s tasks, focus timer, and quick add.",
+    "Focus mode includes 45-min timer + short break + iOS-style progress ring; integrates Do Not Disturb during focus."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Edit Images\n- Update the app icon to match the provided logo idea: open book + small pharmacy leaf, soft peach & lavender gradient, minimal flower symbol, rounded friendly iOS icon style (app-icon.dim_512x512.png > app-icon.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-update-all-app-naming-and-copy-from-the-current-taruba-focus-cec-branding-to-maleeha-focus-for-a-pharm-d-student-ensuring-all-user-facing-text-is-english-only",
+      "title": "Update all app naming and copy from the current “Taruba Focus / CEC” branding to “Maleeha Focus” for a Pharm-D student, ensuring all user-facing text is English only.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-existing-task-categories-and-subjects-with-the-requested-pharm-d-categories-and-subjects-and-ensure-category-selection-filtering-continues-to-work-across-the-app",
+      "title": "Replace the existing task categories and subjects with the requested Pharm-D categories and subjects, and ensure category selection + filtering continues to work across the app.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-rename-the-special-category-section-to-for-maleeha-with-the-requested-preset-tasks-a-flower-completion-indicator-and-a-soft-pastel-accent-applied-only-within-this-category-s-ui-elements",
+      "title": "Implement/rename the special category section to “For Maleeha 🌸” with the requested preset tasks, a flower completion indicator, and a soft pastel accent applied only within this category’s UI elements.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-daily-quote-generator-to-use-exactly-the-20-provided-from-chotu-quotes-verbatim-with-random-selection-and-a-manual-refresh-action-while-keeping-the-existing-daily-persistence-behavior",
+      "title": "Update the daily quote generator to use exactly the 20 provided “from Chotu” quotes (verbatim), with random selection and a manual refresh action, while keeping the existing “daily persistence” behavior.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-specified-ios-style-theme-palette-across-the-app-light-dark-mode-including-updating-global-theme-colors-to-match-primary-ffd6e0-secondary-d4c1ff-background-fff6f9-success-c8ffd4-text-2f2f2f",
+      "title": "Apply the specified iOS-style theme palette across the app (light + dark mode), including updating global theme colors to match: Primary #FFD6E0, Secondary #D4C1FF, Background #FFF6F9, Success #C8FFD4, Text #2F2F2F.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-typography-matches-the-request-use-ios-system-style-for-general-ui-san-francisco-like-and-render-quotes-in-a-soft-handwritten-style",
+      "title": "Ensure typography matches the request: use iOS-system style for general UI (San Francisco-like) and render quotes in a soft handwritten style.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-confirm-the-home-screen-layout-matches-the-requested-structure-for-maleeha-focus-top-date-quote-card-middle-category-cards-bottom-floating-add-button-and-ensure-the-displayed-date-is-today-s-date",
+      "title": "Confirm the Home screen layout matches the requested structure for “Maleeha Focus”: top date + quote card, middle category cards, bottom floating add button, and ensure the displayed date is today’s date.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-the-existing-task-crud-behavior-add-title-description-time-edit-delete-mark-completed-and-ensure-tasks-persist-locally-offline-after-closing-and-reopening",
+      "title": "Keep the existing task CRUD behavior (add title/description/time, edit, delete, mark completed) and ensure tasks persist locally/offline after closing and reopening.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-maintain-the-focus-system-as-a-45-minute-focus-timer-with-a-short-break-after-completion-with-an-ios-style-progress-ring-animation-and-ensure-the-do-not-disturb-during-focus-request-is-represented-as-in-app-distraction-reduction-without-claiming-os-level-dnd-control",
+      "title": "Maintain the focus system as a 45-minute focus timer with a short break after completion, with an iOS-style progress ring animation, and ensure the “Do Not Disturb during focus” request is represented as in-app distraction reduction (without claiming OS-level DND control).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-attendance-tracker-area-to-align-with-the-pharm-d-context-copy-labels-while-preserving-subject-list-management-present-absent-marking-attendance-percentage-and-the-monthly-calendar-view",
+      "title": "Update the Attendance Tracker area to align with the Pharm-D context (copy/labels), while preserving: subject list management, present/absent marking, attendance percentage, and the monthly calendar view.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-app-store-description-section-in-settings-or-an-about-section-that-displays-the-provided-description-text-verbatim-in-english",
+      "title": "Add an “App Store description” section in Settings (or an About section) that displays the provided description text verbatim in English.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Core to-do tasks: add/edit/delete/complete tasks with title, description, time; persist in iOS local storage; show today's date on home",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Category system with predefined categories and Pharm-D study subjects (Pharmaceutics, Medicinal Biochemistry, Human Anatomy & Physiology, Organic Chemistry, Inorganic Chemistry, Remedial Maths) plus Personal, Health & Routine, and For Maleeha",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "45-minute focus system: focus timer, short break, iOS-style progress ring animation, and Do Not Disturb during focus",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Attendance tracker: manage subjects list, mark present/absent, compute attendance percentage, and show monthly calendar view (Apple style)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Special 'For Maleeha' section: preset supportive tasks, flower icon on completion, and soft pastel accent styling limited to this section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Daily quote generator (random) using the provided 20 quotes from Chotu; display in a quote card",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "iOS-style theme and UI layout: pastel color palette, iOS system font + handwritten style for quotes, date+quote card, category cards, floating add button, and dark mode support",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "iOS widgets: home screen widget(s) for today's tasks, 45-min timer, and quick add task",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "iOS requirements: offline-first, lightweight/smooth, data persists after closing, notification reminders, optional Face ID/passcode lock",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Create App Store description text per provided draft",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "App icon/logo direction: open book + small pharmacy leaf, peach/lavender gradient, minimal flower symbol, rounded iOS icon style",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Maleeha Focus",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

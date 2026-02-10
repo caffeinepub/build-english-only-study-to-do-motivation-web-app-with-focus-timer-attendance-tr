@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* App-specific colors using OKLCH - iOS style palette */
+        /* Background: Cream White #FFF6F9 */
+        --background: 0.99 0.01 345;
+        /* Text: Charcoal #2F2F2F */
+        --foreground: 0.25 0.01 15;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.01 15;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.01 15;
+        
+        /* Primary: Soft Pastel Peach #FFD6E0 */
+        --primary: 0.90 0.10 345;
+        --primary-foreground: 0.25 0.01 15;
+        
+        /* Secondary: Lavender #D4C1FF */
+        --secondary: 0.84 0.12 285;
+        --secondary-foreground: 0.25 0.01 15;
+        
+        /* Success: Mint Green #C8FFD4 */
+        --success: 0.96 0.10 145;
+        --success-foreground: 0.25 0.01 15;
+        
+        /* For Maleeha accent - soft pastel peach */
+        --maleeha: 0.90 0.10 345;
+        --maleeha-foreground: 0.25 0.01 15;
+        
+        --muted: 0.96 0.01 345;
+        --muted-foreground: 0.55 0.01 15;
+        --accent: 0.96 0.01 345;
+        --accent-foreground: 0.25 0.01 15;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.92 0.01 345;
+        --input: 0.92 0.01 345;
+        --ring: 0.90 0.10 345;
+        
+        --chart-1: 0.90 0.10 345;
+        --chart-2: 0.84 0.12 285;
+        --chart-3: 0.96 0.10 145;
+        --chart-4: 0.75 0.08 200;
+        --chart-5: 0.65 0.08 60;
+    }
+
+    .dark {
+        --background: 0.18 0.01 15;
+        --foreground: 0.98 0.01 15;
+        --card: 0.22 0.01 15;
+        --card-foreground: 0.98 0.01 15;
+        --popover: 0.22 0.01 15;
+        --popover-foreground: 0.98 0.01 15;
+        
+        --primary: 0.85 0.10 345;
+        --primary-foreground: 0.18 0.01 15;
+        
+        --secondary: 0.78 0.12 285;
+        --secondary-foreground: 0.18 0.01 15;
+        
+        --success: 0.75 0.10 145;
+        --success-foreground: 0.18 0.01 15;
+        
+        --maleeha: 0.85 0.10 345;
+        --maleeha-foreground: 0.18 0.01 15;
+        
+        --muted: 0.30 0.01 15;
+        --muted-foreground: 0.70 0.01 15;
+        --accent: 0.30 0.01 15;
+        --accent-foreground: 0.98 0.01 15;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.98 0.01 15;
+        --border: 0.30 0.01 15;
+        --input: 0.30 0.01 15;
+        --ring: 0.85 0.10 345;
+        
+        --chart-1: 0.85 0.10 345;
+        --chart-2: 0.78 0.12 285;
+        --chart-3: 0.75 0.10 145;
+        --chart-4: 0.65 0.08 200;
+        --chart-5: 0.55 0.08 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Inter', system-ui, sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+        font-weight: 600;
+    }
+    
+    .font-quote {
+        font-family: 'Dancing Script', cursive;
+        line-height: 1.6;
+    }
+}
+
+@layer utilities {
+    .maleeha-accent {
+        background: oklch(var(--maleeha));
+        color: oklch(var(--maleeha-foreground));
+    }
+    
+    .maleeha-border {
+        border-color: oklch(var(--maleeha));
+    }
+    
+    .maleeha-text {
+        color: oklch(var(--maleeha));
+    }
+}

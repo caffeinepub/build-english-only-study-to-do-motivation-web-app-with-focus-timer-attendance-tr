@@ -1,0 +1,237 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T11:34:14.959Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 11,
+    "implemented": 11,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Update all app naming and copy from the current “Taruba Focus / CEC” branding to “Maleeha Focus” for a Pharm-D student, ensuring all user-facing text is English only.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/public/manifest.json",
+          "frontend/src/pages/SettingsPage.tsx",
+          "frontend/src/pages/AttendancePage.tsx",
+          "frontend/src/pages/FocusPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/public/manifest.json",
+          "frontend/src/pages/SettingsPage.tsx",
+          "frontend/src/pages/AttendancePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Update the Attendance Tracker area to align with the Pharm-D context (copy/labels), while preserving: subject list management, present/absent marking, attendance percentage, and the monthly calendar view.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AttendancePage.tsx",
+          "frontend/src/components/attendance/SubjectList.tsx",
+          "frontend/src/components/attendance/AttendanceSummary.tsx",
+          "frontend/src/components/attendance/MonthlyCalendar.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AttendancePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Add an “App Store description” section in Settings (or an About section) that displays the provided description text verbatim in English.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/SettingsPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/SettingsPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Replace the existing task categories and subjects with the requested Pharm-D categories and subjects, and ensure category selection + filtering continues to work across the app.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/types/tasks.ts",
+          "frontend/src/constants/categories.ts",
+          "frontend/src/components/tasks/CategoryPicker.tsx",
+          "frontend/src/components/home/CategoryCards.tsx",
+          "frontend/src/components/tasks/CategoryFilterBar.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/hooks/useTasks.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/types/tasks.ts",
+          "frontend/src/constants/categories.ts",
+          "frontend/src/components/tasks/CategoryPicker.tsx",
+          "frontend/src/components/home/CategoryCards.tsx",
+          "frontend/src/components/tasks/CategoryFilterBar.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/hooks/useTasks.ts"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement/rename the special category section to “For Maleeha 🌸” with the requested preset tasks, a flower completion indicator, and a soft pastel accent applied only within this category’s UI elements.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/tasks/ForTarubaQuickAdd.tsx",
+          "frontend/src/constants/forTarubaPresets.ts",
+          "frontend/src/components/tasks/ForMaleehaQuickAdd.tsx",
+          "frontend/src/constants/forMaleehaPresets.ts",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/tasks/TaskList.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/tasks/ForTarubaQuickAdd.tsx",
+          "frontend/src/constants/forTarubaPresets.ts",
+          "frontend/src/components/tasks/ForMaleehaQuickAdd.tsx",
+          "frontend/src/constants/forMaleehaPresets.ts",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/tasks/TaskList.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Update the daily quote generator to use exactly the 20 provided “from Chotu” quotes (verbatim), with random selection and a manual refresh action, while keeping the existing “daily persistence” behavior.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/constants/muzzamilQuotes.ts",
+          "frontend/src/hooks/useDailyQuote.ts",
+          "frontend/src/components/home/QuoteCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/constants/muzzamilQuotes.ts",
+          "frontend/src/hooks/useDailyQuote.ts",
+          "frontend/src/components/home/QuoteCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Apply the specified iOS-style theme palette across the app (light + dark mode), including updating global theme colors to match: Primary #FFD6E0, Secondary #D4C1FF, Background #FFF6F9, Success #C8FFD4, Text #2F2F2F.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/index.html",
+          "frontend/public/manifest.json",
+          "frontend/src/components/home/CategoryCards.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/index.html",
+          "frontend/public/manifest.json",
+          "frontend/src/components/home/CategoryCards.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Ensure typography matches the request: use iOS-system style for general UI (San Francisco-like) and render quotes in a soft handwritten style.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/index.html",
+          "frontend/src/components/home/QuoteCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/index.html",
+          "frontend/src/components/home/QuoteCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Confirm the Home screen layout matches the requested structure for “Maleeha Focus”: top date + quote card, middle category cards, bottom floating add button, and ensure the displayed date is today’s date.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/layout/TopBar.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/home/AddTaskButton.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Keep the existing task CRUD behavior (add title/description/time, edit, delete, mark completed) and ensure tasks persist locally/offline after closing and reopening.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useTasks.ts",
+          "frontend/src/components/tasks/TaskFormDialog.tsx",
+          "frontend/src/storage/localStore.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useTasks.ts",
+          "frontend/src/components/tasks/TaskFormDialog.tsx",
+          "frontend/src/storage/localStore.ts"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Maintain the focus system as a 45-minute focus timer with a short break after completion, with an iOS-style progress ring animation, and ensure the “Do Not Disturb during focus” request is represented as in-app distraction reduction (without claiming OS-level DND control).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useFocusTimer.ts",
+          "frontend/src/components/focus/ProgressCircle.tsx",
+          "frontend/src/components/focus/DistractionMuteToggle.tsx",
+          "frontend/src/pages/FocusPage.tsx",
+          "frontend/src/components/layout/AppLayout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/focus/DistractionMuteToggle.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.html",
+    "frontend/public/assets/generated/app-icon.dim_512x512.png",
+    "frontend/public/manifest.json",
+    "frontend/src/components/focus/DistractionMuteToggle.tsx",
+    "frontend/src/components/home/CategoryCards.tsx",
+    "frontend/src/components/home/QuoteCard.tsx",
+    "frontend/src/components/tasks/CategoryFilterBar.tsx",
+    "frontend/src/components/tasks/CategoryPicker.tsx",
+    "frontend/src/components/tasks/ForMaleehaQuickAdd.tsx",
+    "frontend/src/components/tasks/ForTarubaQuickAdd.tsx",
+    "frontend/src/components/tasks/TaskFormDialog.tsx",
+    "frontend/src/components/tasks/TaskList.tsx",
+    "frontend/src/constants/categories.ts",
+    "frontend/src/constants/chotuQuotes.ts",
+    "frontend/src/constants/forMaleehaPresets.ts",
+    "frontend/src/constants/forTarubaPresets.ts",
+    "frontend/src/constants/muzzamilQuotes.ts",
+    "frontend/src/hooks/useDailyQuote.ts",
+    "frontend/src/hooks/useTasks.ts",
+    "frontend/src/index.css",
+    "frontend/src/pages/AttendancePage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/SettingsPage.tsx",
+    "frontend/src/storage/localStore.ts",
+    "frontend/src/types/tasks.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "kind": "build_request",
+  "title": "Rebrand and customize the existing study/to-do app into “Maleeha Focus” (Pharm-D) with For Maleeha section",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update all app naming and copy from the current “Taruba Focus / CEC” branding to “Maleeha Focus” for a Pharm-D student, ensuring all user-facing text is English only.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "APP NAME\nMaleeha Focus",
+          "Create an iOS (iPhone) app in ENGLISH only – a To-Do, Study Manager and Motivation app designed for a Pharm-D student with a special “For Maleeha” section."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Browser tab title shows “Maleeha Focus”.",
+        "PWA manifest name/short_name and description reference “Maleeha Focus” and Pharm-D (not Taruba/CEC).",
+        "No user-facing text mentions Taruba, Muzzamil, or CEC after the change.",
+        "All user-facing text remains English only."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Replace the existing task categories and subjects with the requested Pharm-D categories and subjects, and ensure category selection + filtering continues to work across the app.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "CATEGORIES\n\n1. Pharm-D Study\n   \n   - Pharmaceutics\n   - Medicinal Biochemistry\n   - Human Anatomy and Physiology\n   - Organic Chemistry\n   - Inorganic Chemistry\n   - Remedial Maths\n\n2. Personal\n\n3. Health & Routine\n\n4. For Maleeha 🌸"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Category list contains exactly: “Pharm-D Study”, “Personal”, “Health & Routine”, “For Maleeha”.",
+        "Pharm-D Study subject list contains exactly: “Pharmaceutics”, “Medicinal Biochemistry”, “Human Anatomy and Physiology”, “Organic Chemistry”, “Inorganic Chemistry”, “Remedial Maths”.",
+        "When creating/editing a task, selecting “Pharm-D Study” exposes a subject picker; other categories do not.",
+        "Home category cards and the task filter bar reflect the new categories and correctly filter task lists.",
+        "Existing stored tasks from previous categories are handled safely (e.g., mapped or shown under a fallback) without crashing."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement/rename the special category section to “For Maleeha 🌸” with the requested preset tasks, a flower completion indicator, and a soft pastel accent applied only within this category’s UI elements.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "FOR MALEEHA SPECIAL SECTION\n\n- Tasks:\n  - “Check on Maleeha’s day”\n  - “Encourage her study”\n  - “Family time reminder”\n- Flower icon when task completed\n- Soft pastel accent only for this section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When “For Maleeha” is the selected category on Home, a quick-add card appears offering exactly the 3 preset tasks provided.",
+        "Quick-adding a preset creates a task in category “For Maleeha”.",
+        "Completed tasks in category “For Maleeha” display a flower icon indicator (and non-“For Maleeha” tasks do not use the flower indicator).",
+        "Only UI elements within the “For Maleeha” quick-add card and/or “For Maleeha” task styling use the special soft pastel accent; other categories keep the normal palette."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update the daily quote generator to use exactly the 20 provided “from Chotu” quotes (verbatim), with random selection and a manual refresh action, while keeping the existing “daily persistence” behavior.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "DAILY QUOTE GENERATOR (from Chotu)\nUse these quotes randomly:\n\n1. I believe in your hard work more than any fear you have.\n...\n20. I trust your journey and your strength."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The quote source list contains exactly 20 quotes matching the user-provided text (including punctuation such as em dashes and apostrophes).",
+        "The app shows one quote at a time and allows manual refresh from the quote card.",
+        "A quote persists for the day and changes automatically when the calendar day changes (existing behavior preserved).",
+        "No quote attribution text displays a different name than “Chotu” (if attribution is displayed at all)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply the specified iOS-style theme palette across the app (light + dark mode), including updating global theme colors to match: Primary #FFD6E0, Secondary #D4C1FF, Background #FFF6F9, Success #C8FFD4, Text #2F2F2F.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "APP THEME (iOS STYLE)\n\nColors\n\n- Primary: Soft Pastel Peach #FFD6E0\n- Secondary: Lavender #D4C1FF\n- Background: Cream White #FFF6F9\n- Success: Mint Green #C8FFD4\n- Text: Charcoal #2F2F2F",
+          "iOS dark mode support"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Light theme surfaces/backgrounds match the requested palette (with appropriate contrast).",
+        "Dark mode remains available and readable; no hard-coded light-only colors break dark mode.",
+        "Category color styling is updated so the new categories have consistent, iOS-like soft tint styling.",
+        "Theme color meta/manifest values are consistent with the updated palette."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Ensure typography matches the request: use iOS-system style for general UI (San Francisco-like) and render quotes in a soft handwritten style.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Fonts\n\n- Use iOS system fonts (San Francisco)\n- Quotes in soft handwritten style"
+        ]
+      },
+      "acceptanceCriteria": [
+        "General UI text uses system font stacks appropriate for iOS (San Francisco-style).",
+        "Quote text uses a handwritten/cursive font style distinct from the main UI text.",
+        "Typography changes do not introduce layout overflow/clipping in the quote card."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Confirm the Home screen layout matches the requested structure for “Maleeha Focus”: top date + quote card, middle category cards, bottom floating add button, and ensure the displayed date is today’s date.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "UI LAYOUT\n\n- Top: Date + Quote card\n- Middle: Category cards (iOS rounded)\n- Bottom: Floating Add button",
+          "Show today date on home screen"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home shows today’s date at the top.",
+        "Quote card appears near the top beneath the date.",
+        "Category cards appear in the middle with iOS-like rounded styling.",
+        "A floating add button is fixed near the bottom and opens the task creation dialog."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Keep the existing task CRUD behavior (add title/description/time, edit, delete, mark completed) and ensure tasks persist locally/offline after closing and reopening.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "CORE FEATURES\n\n- Add task with title, description and time\n- Edit, delete, mark completed\n- Tasks saved permanently using iOS local storage",
+          "iOS REQUIREMENTS\n\n- Offline working\n- Data safe after closing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can create tasks with title, optional description, and optional time.",
+        "Users can edit and delete tasks.",
+        "Users can mark tasks completed/uncompleted.",
+        "Tasks persist via local storage and are still present after a full page reload.",
+        "Core flows continue to work with no network connectivity."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Maintain the focus system as a 45-minute focus timer with a short break after completion, with an iOS-style progress ring animation, and ensure the “Do Not Disturb during focus” request is represented as in-app distraction reduction (without claiming OS-level DND control).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "FOCUS SYSTEM\n\n- 45 Minute Focus Timer\n- Short break after timer\n- Progress ring animation (iOS style)\n- Do Not Disturb during focus"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Focus phase duration is 45 minutes and break starts automatically after the focus timer completes.",
+        "The progress ring animates smoothly during the timer.",
+        "The UI provides an in-app distraction reduction mode (e.g., hide non-essential UI) and does not claim to toggle the phone’s OS-level Do Not Disturb."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Update the Attendance Tracker area to align with the Pharm-D context (copy/labels), while preserving: subject list management, present/absent marking, attendance percentage, and the monthly calendar view.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "ATTENDANCE TRACKER\n\n- Add subjects list\n- Present / Absent marking\n- Attendance percentage\n- Monthly calendar view (Apple style)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can add/edit/delete subjects in Attendance.",
+        "Users can mark days as Present/Absent per subject.",
+        "Attendance percentage and counts display correctly.",
+        "Monthly calendar view remains available and usable.",
+        "Any CEC-specific wording is removed from the Attendance UI."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add an “App Store description” section in Settings (or an About section) that displays the provided description text verbatim in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "APP STORE DESCRIPTION\n\n“Maleeha Focus is a simple and caring study companion created by her brother Chotu.\nThe app helps Pharm-D students manage daily tasks, track attendance, and study with a 45-minute focus system. It includes motivational quotes and a special section dedicated to encouraging Maleeha in her journey. Designed with a calm iOS style to reduce stress and build consistency.”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Settings includes a readable section showing the provided App Store description text verbatim.",
+        "The description is displayed in English only and references Maleeha and Chotu as provided."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (read-only Shadcn components); compose them instead.",
+    "Do not modify immutable frontend paths listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Backend must remain a single Motoko actor (backend/main.mo); only add migration if existing stable state must change."
+  ],
+  "nonGoals": [
+    "Native iOS widget implementation (home screen widgets) is out of scope for this web/PWA build.",
+    "Face ID / passcode lock is out of scope for this web/PWA build.",
+    "True OS-level Do Not Disturb control is out of scope; only in-app distraction reduction is supported."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": [
+      "Update the app icon to match the provided logo idea: open book + small pharmacy leaf, soft peach & lavender gradient, minimal flower symbol, rounded friendly iOS icon style (app-icon.dim_512x512.png > app-icon.dim_512x512.png)"
+    ]
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Maleeha Focus rebrand + Pharm-D customization (frontend-only)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Rebrand all user-facing naming/copy to “Maleeha Focus” (Pharm-D), English-only, removing Taruba/CEC/Muzzamil mentions.",
+      "acceptanceCriteria": [
+        "Browser tab title shows “Maleeha Focus”.",
+        "PWA manifest name/short_name and description reference “Maleeha Focus” and Pharm-D (not Taruba/CEC).",
+        "No user-facing text mentions Taruba, Muzzamil, or CEC after the change.",
+        "All user-facing text remains English only."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update document title and any remaining metadata copy to “Maleeha Focus” (English-only)."
+        },
+        {
+          "path": "frontend/public/manifest.json",
+          "operation": "modify",
+          "description": "Update PWA manifest name/short_name/description to “Maleeha Focus” and Pharm-D context; remove Taruba/CEC references; keep colors consistent with the new palette."
+        },
+        {
+          "path": "frontend/src/pages/SettingsPage.tsx",
+          "operation": "modify",
+          "description": "Update Settings/About/footers to “Maleeha Focus” and Pharm-D wording; remove Taruba/CEC mentions in visible copy."
+        },
+        {
+          "path": "frontend/src/pages/AttendancePage.tsx",
+          "operation": "modify",
+          "description": "Update Attendance page heading/subheading copy to Pharm-D context and remove any CEC wording."
+        },
+        {
+          "path": "frontend/src/pages/FocusPage.tsx",
+          "operation": "modify",
+          "description": "Update Focus page visible copy to match “Maleeha Focus” tone and ensure no Taruba/CEC/Muzzamil references remain."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Replace task categories/subjects with the specified Pharm-D set and keep category selection/filtering working, including safe handling of stored legacy categories.",
+      "acceptanceCriteria": [
+        "Category list contains exactly: “Pharm-D Study”, “Personal”, “Health & Routine”, “For Maleeha”.",
+        "Pharm-D Study subject list contains exactly: “Pharmaceutics”, “Medicinal Biochemistry”, “Human Anatomy and Physiology”, “Organic Chemistry”, “Inorganic Chemistry”, “Remedial Maths”.",
+        "When creating/editing a task, selecting “Pharm-D Study” exposes a subject picker; other categories do not.",
+        "Home category cards and the task filter bar reflect the new categories and correctly filter task lists.",
+        "Existing stored tasks from previous categories are handled safely (e.g., mapped or shown under a fallback) without crashing."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/types/tasks.ts",
+          "operation": "modify",
+          "description": "Update task category and subject TypeScript unions/types from CEC/Taruba to the new Pharm-D categories + subjects."
+        },
+        {
+          "path": "frontend/src/constants/categories.ts",
+          "operation": "modify",
+          "description": "Replace category list and subject list with the specified Pharm-D categories/subjects; update category-to-style mapping to match new category names."
+        },
+        {
+          "path": "frontend/src/components/tasks/CategoryPicker.tsx",
+          "operation": "modify",
+          "description": "Update category selection UI to the new categories; show the subject picker only when “Pharm-D Study” is selected; update labels/placeholders to match Pharm-D terminology."
+        },
+        {
+          "path": "frontend/src/components/home/CategoryCards.tsx",
+          "operation": "modify",
+          "description": "Update Home category card config to match exactly the new categories, including icons and soft iOS-like tint styling per category."
+        },
+        {
+          "path": "frontend/src/components/tasks/CategoryFilterBar.tsx",
+          "operation": "modify",
+          "description": "Update filter bar to reflect the new categories and ensure selection styling works for “For Maleeha 🌸” without impacting other categories."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Update category-specific logic (counts, filtering, labels like “Categories”/“All Tasks”) to the new category names and preserve correct filtering behavior."
+        },
+        {
+          "path": "frontend/src/hooks/useTasks.ts",
+          "operation": "modify",
+          "description": "Add a safe in-frontend migration/normalization step when loading stored tasks so legacy categories/subjects (e.g., CEC Study/Workout/For Taruba) map to the new categories/subjects or a fallback, preventing crashes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Rename/implement the special category section as “For Maleeha 🌸” with 3 preset quick-add tasks, a flower completion indicator, and a pastel accent only within this section’s UI.",
+      "acceptanceCriteria": [
+        "When “For Maleeha” is the selected category on Home, a quick-add card appears offering exactly the 3 preset tasks provided.",
+        "Quick-adding a preset creates a task in category “For Maleeha”.",
+        "Completed tasks in category “For Maleeha” display a flower icon indicator (and non-“For Maleeha” tasks do not use the flower indicator).",
+        "Only UI elements within the “For Maleeha” quick-add card and/or “For Maleeha” task styling use the special soft pastel accent; other categories keep the normal palette."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tasks/ForTarubaQuickAdd.tsx",
+          "operation": "rename",
+          "description": "Rename the quick-add component to reflect the “For Maleeha 🌸” section and prepare it for the new presets and accent styling."
+        },
+        {
+          "path": "frontend/src/constants/forTarubaPresets.ts",
+          "operation": "rename",
+          "description": "Rename the presets constants file to a “For Maleeha 🌸” equivalent and replace the preset task titles with the 3 requested items."
+        },
+        {
+          "path": "frontend/src/components/tasks/ForMaleehaQuickAdd.tsx",
+          "operation": "modify",
+          "description": "Update the renamed quick-add card UI: title/copy must be “For Maleeha 🌸” and show exactly the 3 provided presets; apply a soft pastel accent only within this card."
+        },
+        {
+          "path": "frontend/src/constants/forMaleehaPresets.ts",
+          "operation": "modify",
+          "description": "Define exactly the 3 preset tasks verbatim: “Check on Maleeha’s day”, “Encourage her study”, “Family time reminder”."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Wire the renamed quick-add card to show only when the selected category is “For Maleeha 🌸”; ensure quick-add creates tasks in category “For Maleeha 🌸”."
+        },
+        {
+          "path": "frontend/src/components/tasks/TaskList.tsx",
+          "operation": "modify",
+          "description": "Replace the current special completion indicator logic so only “For Maleeha 🌸” completed tasks show a flower icon indicator; ensure other categories do not show the flower indicator."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/update section-scoped utility classes (rename Taruba-specific utilities to Maleeha-specific) so the special soft pastel accent applies only within the “For Maleeha 🌸” UI elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update Tailwind color tokens as needed to support a dedicated “For Maleeha 🌸” accent color used only for this section’s UI."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Update the daily quote generator to use exactly the 20 provided “from Chotu” quotes, with random selection, manual refresh, and daily persistence preserved.",
+      "acceptanceCriteria": [
+        "The quote source list contains exactly 20 quotes matching the user-provided text (including punctuation such as em dashes and apostrophes).",
+        "The app shows one quote at a time and allows manual refresh from the quote card.",
+        "A quote persists for the day and changes automatically when the calendar day changes (existing behavior preserved).",
+        "No quote attribution text displays a different name than “Chotu” (if attribution is displayed at all)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/constants/muzzamilQuotes.ts",
+          "operation": "modify",
+          "description": "Replace the existing quotes list with exactly the 20 user-provided “from Chotu” quotes verbatim; ensure the list length is exactly 20."
+        },
+        {
+          "path": "frontend/src/hooks/useDailyQuote.ts",
+          "operation": "modify",
+          "description": "Ensure random quote selection draws from the updated 20-quote list; preserve existing daily persistence and manual refresh behavior."
+        },
+        {
+          "path": "frontend/src/components/home/QuoteCard.tsx",
+          "operation": "modify",
+          "description": "Update quote attribution (if shown) to “Chotu” and ensure the refresh action remains available and functional."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply the specified iOS-style theme palette across light/dark mode, including global theme tokens, category tint styling, and meta/manifest theme values.",
+      "acceptanceCriteria": [
+        "Light theme surfaces/backgrounds match the requested palette (with appropriate contrast).",
+        "Dark mode remains available and readable; no hard-coded light-only colors break dark mode.",
+        "Category color styling is updated so the new categories have consistent, iOS-like soft tint styling.",
+        "Theme color meta/manifest values are consistent with the updated palette."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global CSS theme variables for light/dark to match: Primary #FFD6E0, Secondary #D4C1FF, Background #FFF6F9, Success #C8FFD4, Text #2F2F2F; ensure readable dark mode equivalents and avoid hard-coded light-only colors."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Align Tailwind theme tokens (colors, ring, etc.) with the updated CSS variables and ensure category tint styling remains consistent with the new palette."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update meta theme-color (and any related theme metadata) to be consistent with the updated palette."
+        },
+        {
+          "path": "frontend/public/manifest.json",
+          "operation": "modify",
+          "description": "Update manifest background_color/theme_color to be consistent with the updated palette and overall iOS-style theme."
+        },
+        {
+          "path": "frontend/src/components/home/CategoryCards.tsx",
+          "operation": "modify",
+          "description": "Update category card gradient/border tint classes to match the new iOS-style palette and category set."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Update typography: iOS system-style fonts for general UI and a soft handwritten font for quotes without layout issues.",
+      "acceptanceCriteria": [
+        "General UI text uses system font stacks appropriate for iOS (San Francisco-style).",
+        "Quote text uses a handwritten/cursive font style distinct from the main UI text.",
+        "Typography changes do not introduce layout overflow/clipping in the quote card."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Switch general UI font stacks to iOS/system (San Francisco-like) for body/headings; keep a distinct handwritten/cursive font for quote text and validate quote card line-height/spacing to prevent overflow."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update Tailwind fontFamily tokens to use system font stacks for sans/heading and preserve a dedicated quote font family for handwritten styling."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Adjust font loading declarations to reflect the new typography choices (system-first for UI; optional handwritten font for quotes)."
+        },
+        {
+          "path": "frontend/src/components/home/QuoteCard.tsx",
+          "operation": "modify",
+          "description": "Validate and adjust quote text styling (font class, sizing, wrapping) to avoid clipping/overflow with the handwritten style."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Ensure Home layout matches the requested structure (today’s date + quote card at top, category cards in middle, floating add button at bottom) and date shows today.",
+      "acceptanceCriteria": [
+        "Home shows today’s date at the top.",
+        "Quote card appears near the top beneath the date.",
+        "Category cards appear in the middle with iOS-like rounded styling.",
+        "A floating add button is fixed near the bottom and opens the task creation dialog."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/TopBar.tsx",
+          "operation": "modify",
+          "description": "Confirm/adjust TopBar date formatting to always display today’s date clearly in English and match the refreshed “Maleeha Focus” styling."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Confirm/adjust Home composition order and spacing to match: Date + Quote card at top, category cards in middle, floating add button at bottom; ensure add button opens the task creation dialog."
+        },
+        {
+          "path": "frontend/src/components/home/AddTaskButton.tsx",
+          "operation": "modify",
+          "description": "Confirm/adjust floating button positioning and iOS-style rounding/shadow so it remains fixed near the bottom and remains accessible across content lengths."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Preserve existing task CRUD (title/description/time, edit, delete, complete) and ensure reliable offline/local persistence after reload.",
+      "acceptanceCriteria": [
+        "Users can create tasks with title, optional description, and optional time.",
+        "Users can edit and delete tasks.",
+        "Users can mark tasks completed/uncompleted.",
+        "Tasks persist via local storage and are still present after a full page reload.",
+        "Core flows continue to work with no network connectivity."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useTasks.ts",
+          "operation": "modify",
+          "description": "Ensure task CRUD behavior remains intact while integrating category/subject updates and legacy-data normalization; keep local/offline persistence stable."
+        },
+        {
+          "path": "frontend/src/components/tasks/TaskFormDialog.tsx",
+          "operation": "modify",
+          "description": "Verify the task form still supports title, optional description, and optional time; ensure edit vs add flows remain correct with updated category/subject fields."
+        },
+        {
+          "path": "frontend/src/storage/localStore.ts",
+          "operation": "modify",
+          "description": "If needed, extend local storage helpers to support safe data versioning/migration for tasks so older stored categories/subjects do not break the app offline."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Maintain a 45-minute focus timer with short break and iOS-style progress ring, and represent “Do Not Disturb” only as in-app distraction reduction (no OS-level claims).",
+      "acceptanceCriteria": [
+        "Focus phase duration is 45 minutes and break starts automatically after the focus timer completes.",
+        "The progress ring animates smoothly during the timer.",
+        "The UI provides an in-app distraction reduction mode (e.g., hide non-essential UI) and does not claim to toggle the phone’s OS-level Do Not Disturb."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useFocusTimer.ts",
+          "operation": "modify",
+          "description": "Verify and enforce 45-minute focus duration and automatic short break behavior; preserve progress updates needed for smooth ring animation."
+        },
+        {
+          "path": "frontend/src/components/focus/ProgressCircle.tsx",
+          "operation": "modify",
+          "description": "Confirm the progress ring animation remains smooth and iOS-like with the updated theme palette (colors/contrast in light and dark)."
+        },
+        {
+          "path": "frontend/src/components/focus/DistractionMuteToggle.tsx",
+          "operation": "modify",
+          "description": "Adjust copy/labels to clearly communicate in-app distraction reduction (no OS-level Do Not Disturb control)."
+        },
+        {
+          "path": "frontend/src/pages/FocusPage.tsx",
+          "operation": "modify",
+          "description": "Ensure distraction reduction mode hides non-essential UI as intended and all text avoids OS-level DND claims; keep 45-min + break messaging consistent."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Confirm global navigation hiding behavior during focus mode aligns with in-app distraction reduction and does not affect other pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Update Attendance Tracker wording for Pharm-D context while preserving subject management, present/absent marking, percentage stats, and monthly calendar.",
+      "acceptanceCriteria": [
+        "Users can add/edit/delete subjects in Attendance.",
+        "Users can mark days as Present/Absent per subject.",
+        "Attendance percentage and counts display correctly.",
+        "Monthly calendar view remains available and usable.",
+        "Any CEC-specific wording is removed from the Attendance UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AttendancePage.tsx",
+          "operation": "modify",
+          "description": "Update Attendance UI headings/subheadings and any helper text to align with Pharm-D context and remove CEC-specific wording while keeping existing functionality unchanged."
+        },
+        {
+          "path": "frontend/src/components/attendance/SubjectList.tsx",
+          "operation": "modify",
+          "description": "Review and update any visible copy/labels in the subject list management dialogs to ensure Pharm-D-appropriate, English-only wording."
+        },
+        {
+          "path": "frontend/src/components/attendance/AttendanceSummary.tsx",
+          "operation": "modify",
+          "description": "Review and update any visible copy/labels to ensure English-only Pharm-D context while preserving stats calculations and display."
+        },
+        {
+          "path": "frontend/src/components/attendance/MonthlyCalendar.tsx",
+          "operation": "modify",
+          "description": "Review and update any calendar UI copy/labels if needed (English-only), preserving monthly navigation and present/absent marking behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Add an App Store description section in Settings (or About) showing the provided description verbatim in English.",
+      "acceptanceCriteria": [
+        "Settings includes a readable section showing the provided App Store description text verbatim.",
+        "The description is displayed in English only and references Maleeha and Chotu as provided."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SettingsPage.tsx",
+          "operation": "modify",
+          "description": "Add a new section in Settings/About that displays the provided App Store description text verbatim (English-only), and keep the rest of Settings consistent with “Maleeha Focus” branding."
+        }
+      ]
+    }
+  ]
+}

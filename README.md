@@ -1,2 +1,3 @@
-# build-english-only-study-to-do-motivation-web-app-with-focus-timer-attendance-tr
-Exported from Caffeine project: Maleeha Focus
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
